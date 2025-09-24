@@ -1,6 +1,7 @@
 package com.example.football_team_api.Team.dto;
 
 import com.example.football_team_api.Player.dto.CreatePlayerRequestDto;
+import com.example.football_team_api.Player.entity.Player;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -21,8 +22,8 @@ public class UpdateTeamRequestDto {
     @PositiveOrZero(message = "Le budget doit être positif")
     private BigDecimal budget;
 
-    // Liste optionnelle de joueurs à créer
-    private List<UpdatePlayerRequestDto> players;
+
+    private List<Player> players;
 
     public String getName() {
         return name;
@@ -48,11 +49,11 @@ public class UpdateTeamRequestDto {
         this.budget = budget;
     }
 
-    public List<UpdatePlayerRequestDto> getPlayers() {
+    public List<Player> getPlayers() {
         return players;
     }
 
-    public void setPlayers(List<UpdatePlayerRequestDto> players) {
+    public void setPlayers(List<Player> players) {
         this.players = players;
     }
 

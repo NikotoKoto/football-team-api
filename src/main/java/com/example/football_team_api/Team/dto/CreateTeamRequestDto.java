@@ -18,7 +18,7 @@ public class CreateTeamRequestDto {
     @PositiveOrZero(message = "Le budget doit être positif")
     private BigDecimal budget;
 
-    // Liste optionnelle de joueurs à créer
+
     private List<CreatePlayerRequestDto> players;
 
     public String getName() { return name; }

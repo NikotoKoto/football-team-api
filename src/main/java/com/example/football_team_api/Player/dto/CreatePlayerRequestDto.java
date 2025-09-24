@@ -14,7 +14,7 @@ public class CreatePlayerRequestDto {
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public String getPosition() { return position; }
+    public Position getPosition() { return position; }
     public void setPosition(Position position) { this.position = position; }
 
     @Override

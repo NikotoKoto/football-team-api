@@ -9,7 +9,7 @@ public class PlayerMapper {
     public static Player toEntity(CreatePlayerRequestDto dto) {
         Player player = new Player();
         player.setName(dto.getName());
-        player.setPosition(Enum.valueOf(Position.class, dto.getPosition()));
+        player.setPosition(dto.getPosition());
         return player;
     }
 
@@ -17,8 +17,8 @@ public class PlayerMapper {
         return new PlayerResponseDto(
                 player.getId(),
                 player.getName(),
-                player.getPosition().name()
+                player.getPosition()
         );
-    }
+
 }
 }
