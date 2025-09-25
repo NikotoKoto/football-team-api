@@ -68,7 +68,7 @@ Lancer les tests:
 ## Documentation de l'API
 
 ### Collection Postman
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://.postman.co/workspace/Personal-Workspace~40a62766-5517-4c11-b9cf-d5aef9a1085e/request/29348541-0bd4190b-77ce-4eab-8c50-c40f108b0119?action=share&creator=29348541)
+[![Run in Postman](https://run.pstmn.io/button.svg)]([https://.postman.co/workspace/Personal-Workspace~40a62766-5517-4c11-b9cf-d5aef9a1085e/request/29348541-0bd4190b-77ce-4eab-8c50-c40f108b0119?action=share&creator=29348541](https://.postman.co/workspace/Personal-Workspace~40a62766-5517-4c11-b9cf-d5aef9a1085e/collection/29348541-e72ea10d-6305-4019-8ff3-a539f2992531?action=share&creator=29348541))
 
 ### Swagger UI
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
