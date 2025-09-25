@@ -15,7 +15,7 @@ public class PlayerResponseDto {
 
     public Long getId() { return id; }
     public String getName() { return name; }
-    public String getPosition() { return position; }
+    public Position getPosition() { return position; }
 
     @Override
     public String toString() {

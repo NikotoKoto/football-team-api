@@ -12,4 +12,19 @@ public class UpdatePlayerRequestDto {
     @NotNull(message = "La position est obligatoire")
     private Position position;
 
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

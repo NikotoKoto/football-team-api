@@ -28,8 +28,7 @@ public class TeamMapper {
         return team;
     }
 
-    public static Team toEntity(UpdateTeamRequestDto dto){
-        Team team = new Team();
+    public static Team toEntity(UpdateTeamRequestDto dto, Team team){
         team.setName(dto.getName());
         team.setAcronym(dto.getAcronym());
         team.setBudget(dto.getBudget());
