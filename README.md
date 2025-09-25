@@ -30,13 +30,15 @@ GET /equipes : permet la récupération paginée des équipes avec leurs joueurs
 - **Spring Data JPA** : Liaison entre backend et Bdd
 - **PostgreSQL** : Base de donnée robuste
 - **Tests unitaires** : Jubit5 et Mockito
+- **Swagger**: documentation interactive de l’API
+- **Désactivation temporaire de Spring Security pour tester facilement avec Postman**
 
 ## Guide d'installation
 
 ### Prérequis
 
-- **Java 21**
-- **Maven 4.0**
+- **Docker**
+- **Docker Compose**
 
 ### Etape d'installation 
 
@@ -46,17 +48,29 @@ git clone https://github.com/<ton-utilisateur>/football-team-api.git
 cd football-team-api
 ```
 
-#### Configurer la base de données
-
-
-#### Compiler et executer l'application
+#### Lancer la bdd et l'API avec Docker Compose
 ```
-mvn clean install
-mvn spring-boot:run
+docker-compose up -d
 ```
 
-### Documentation de l'API
 
-http://localhost:8080/swagger-ui.html
+## Tests
+
+Les tests unitaires couvrent: 
+-	La création, mise à jour, récupération et suppression d’équipes
+- La création et la gestion des joueurs par équipe
+
+Lancer les tests: 
+```
+./mvnw test
+```
+
+## Documentation de l'API
+
+### Collection Postman
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://.postman.co/workspace/Personal-Workspace~40a62766-5517-4c11-b9cf-d5aef9a1085e/request/29348541-0bd4190b-77ce-4eab-8c50-c40f108b0119?action=share&creator=29348541)
+
+### Swagger UI
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 
