@@ -46,8 +46,9 @@ public class TeamService {
         Team team = teamRepository.findById(id)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team not found"));
 
-        Team updated = TeamMapper.toEntity(dto,team);
-        return TeamMapper.toDto(teamRepository.save(updated));
+        TeamMapper.updateEntityFromDto(dto,team);
+        Team saved = teamRepository.save(team);
+        return TeamMapper.toDto(saved);
     }
 
     public void deleteTeam(Long id){

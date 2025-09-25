@@ -28,11 +28,18 @@ public class TeamMapper {
         return team;
     }
 
-    public static Team toEntity(UpdateTeamRequestDto dto, Team team){
-        team.setName(dto.getName());
-        team.setAcronym(dto.getAcronym());
-        team.setBudget(dto.getBudget());
-        return team;
+    public static void updateEntityFromDto(UpdateTeamRequestDto dto, Team target) {
+        if (dto.getName() != null) {
+            String name = dto.getName().trim();
+            if (!name.isEmpty()) target.setName(name);
+        }
+        if (dto.getAcronym() != null) {
+            String ac = dto.getAcronym().trim();
+            if (!ac.isEmpty()) target.setAcronym(ac);
+        }
+        if (dto.getBudget() != null) {
+            target.setBudget(dto.getBudget());
+        }
     }
 
     public static TeamResponseDto toDto(Team team) {
