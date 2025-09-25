@@ -8,6 +8,8 @@ import com.example.football_team_api.Team.entity.Team;
 import com.example.football_team_api.Team.mapper.TeamMapper;
 import com.example.football_team_api.Team.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -29,11 +31,9 @@ public class TeamService {
         return TeamMapper.toDto(teamRepository.save(team));
     }
 
-    public List<TeamResponseDto> getAllTeam(){
-
-        return teamRepository.findAll().stream()
-                .map(TeamMapper::toDto)
-                .toList();
+    public Page<TeamResponseDto> getAllTeams(Pageable pageable) {
+        return teamRepository.findAll(pageable)
+                .map(TeamMapper::toDto);
     }
 
     public TeamResponseDto getTeamById(Long id){
@@ -42,7 +42,7 @@ public class TeamService {
         return TeamMapper.toDto(team);
     }
 
-    public TeamResponseDto updateTeamWithId(Long id, UpdateTeamRequestDto dto){
+    public TeamResponseDto updateTeamById(Long id, UpdateTeamRequestDto dto){
         Team team = teamRepository.findById(id)
                 .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team not found"));
 

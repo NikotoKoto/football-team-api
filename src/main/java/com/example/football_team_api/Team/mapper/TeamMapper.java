@@ -32,7 +32,6 @@ public class TeamMapper {
         team.setName(dto.getName());
         team.setAcronym(dto.getAcronym());
         team.setBudget(dto.getBudget());
-        team.setPlayers(dto.getPlayers());
         return team;
     }
 

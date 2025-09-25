@@ -20,7 +20,7 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    // Créer un joueur dans une équipe
+    // Add a player into team
     @PostMapping
     public ResponseEntity<PlayerResponseDto> createPlayer(
             @PathVariable Long teamId,
@@ -30,14 +30,25 @@ public class PlayerController {
         return ResponseEntity.status(201).body(response);
     }
 
-    // Récupérer tous les joueurs d’une équipe
+    // Add several players into team
+    @PostMapping("/bulk")
+    public ResponseEntity<List<PlayerResponseDto>> createPlayers(
+            @PathVariable Long teamId,
+            @RequestBody List<CreatePlayerRequestDto> playersDto) {
+        List<PlayerResponseDto> responses = playersDto.stream()
+                .map(dto -> playerService.createPlayer(teamId, dto))
+                .toList();
+        return ResponseEntity.ok(responses);
+    }
+
+    // Get all players into team
     @GetMapping
     public ResponseEntity<List<PlayerResponseDto>> getAllPlayers(@PathVariable Long teamId) {
         List<PlayerResponseDto> response = playerService.getAllPlayers(teamId);
         return ResponseEntity.ok(response);
     }
 
-    // Récupérer un joueur par son id
+    // Get one player with his id
     @GetMapping("/{id}")
     public ResponseEntity<PlayerResponseDto> getPlayerById(
             @PathVariable Long teamId,
@@ -47,7 +58,7 @@ public class PlayerController {
         return ResponseEntity.ok(response);
     }
 
-    // Mettre à jour un joueur
+    // Update player
     @PatchMapping("/{id}")
     public ResponseEntity<PlayerResponseDto> updatePlayer(
             @PathVariable Long teamId,
@@ -58,7 +69,7 @@ public class PlayerController {
         return ResponseEntity.ok(response);
     }
 
-    // Supprimer un joueur
+    // Delete player
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePlayer(
             @PathVariable Long teamId,
