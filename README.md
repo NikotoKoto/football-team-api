@@ -69,7 +69,7 @@ Lancer les tests:
 
 ### Collection Postman
 Pour tester rapidement l'API, vous pouvez importer cette collection Postman :  
-[ Télécharger la collection](./postman/football-team-api.postman_collection.json)
+[ Télécharger la collection](./postman/Football-team-API.postman_collection.json)
 
 ### Swagger UI
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
